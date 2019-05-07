@@ -16,7 +16,7 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return name + " Steine:" + Steine + ", Wurfel:" + Arrays.toString(Wurfel);
+		return name + ": Steine:" + Steine + ", Würfel:" + Arrays.toString(Wurfel);
 	}
 		
 	public int getSteine() {
@@ -77,7 +77,7 @@ public class Player {
 		this.wurfeln();
 		defender.wurfeln();
 		
-		System.out.println(this.getName() + " greift " + defender.getName() + " an!");
+		System.out.println(this.getName() + " greift " + defender.getName() + " an!\n");
 		
 		int[] wd = defender.getWurfel();
 		int k;
@@ -95,6 +95,9 @@ public class Player {
 				Steine = Steine - 1;
 			}
 		}
+		
+		System.out.println(this);
+		System.out.println(defender + "\n");
 			
 	}
 	
