@@ -71,6 +71,25 @@ public class Matrix {
 		}
 	}
 	
+	public Matrix mult(Matrix m) {
+		if(this.getDim() != m.getDim()) {
+			throw new ArrayIndexOutOfBoundsException("Dim stimmmen nicht über ein!");
+		}else {
+			Matrix c = new Matrix(this.getDim());
+			for(int i = 0; i < this.getDim(); i++) {
+				for(int j = 0; j < this.getDim(); j++) {
+					c.elems[i][j] = 0.0;
+					for(int k = 0; k < this.getDim(); k++) {
+						c.elems[i][j] = c.elems[i][j] + this.getElems()[i][k] * m.getElems()[k][j];
+					}
+				}
+			}
+		}
+		
+		return null;
+	}
+	
+	
 	public int getDim() {
 		return dim;
 	}
