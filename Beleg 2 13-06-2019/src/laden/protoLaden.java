@@ -25,20 +25,26 @@ public abstract class protoLaden {
 	
 	public void buy(String id, Player player) throws Exception {
 		List<Ibuyable> pinventar = player.getInventarPlayer();
-		pinventar.add(inventar.get(id));
-		player.setInventarPlayer(pinventar);
-		
-		
 		Ibuyable i2= inventar.get(id);
-		int neuesGold= i2.getGold();
-		
 		if(player.getGold() < i2.getGold()) {
 			throw new noMoneyException("Kein Gold mehr");
+		}else {
+			pinventar.add(inventar.get(id));
+			player.setInventarPlayer(pinventar);
+			
+			
+			
+			int neuesGold= i2.getGold();
+			
+			
+			
+			player.setGold(player.getGold() - neuesGold);
+			gold+= inventar.get(id).getGold();
+			inventar.remove(id);
 		}
 		
-		player.setGold(player.getGold() - neuesGold);
-		gold+= inventar.get(id).getGold();
-		inventar.remove(id);	
+		
+			
 	}
 
 	@Override

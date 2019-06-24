@@ -13,13 +13,13 @@ public class testladen {
 		Waffen schmied = new Waffen();
 		Juwelier j = new Juwelier();
 		Buchladen b = new Buchladen();
-		Player marcus = new Player("Marcus der Thotslayer");
-		
+		Player marcus = new Player("Marcus der Dorfbewohner");
+		System.out.println(marcus);
 
 		
-		marcus.buyForMe(schmied, j, b, "Juwelier");
-		//System.out.println(marcus);
+		marcus.buyForMe(schmied, j, b, "Schmied");
 		marcus.useAll();
+		//System.out.println(marcus);
 		
 		
 
