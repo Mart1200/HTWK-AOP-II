@@ -2,6 +2,8 @@ package classes;
 
 import java.awt.Color;
 import java.awt.HeadlessException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -13,7 +15,7 @@ public class NotebookGUI extends JFrame{
 	private NotebookData notes;
 	private JLabel daylbl, textlbl;
 	private JTextArea termintxt;
-	private JComboBox<String> days;
+	private JComboBox<String> days, hours;
 	private JButton BAnzeigen, BSpeichern, BClear, BBeenden;
 	
 	
@@ -44,6 +46,12 @@ public class NotebookGUI extends JFrame{
 		days = new JComboBox<String>(daylist);
 		days.setBounds(20, 30, 110, 20);
 		this.add(days);
+		
+		String[] hourlist = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
+		hours = new JComboBox<String>(hourlist);
+		hours.setBounds(20, 60, 110, 20);
+		this.add(hours);
+		
 		
 		BAnzeigen = new JButton("Anzeigen");
 		BAnzeigen.setBounds(20, 100, 110, 20);
@@ -102,6 +110,7 @@ public class NotebookGUI extends JFrame{
 	}
 
 	private void close() {
+		notes.writetoFile();
 		this.dispose();
 		System.exit(0);
 	}
@@ -109,6 +118,8 @@ public class NotebookGUI extends JFrame{
 	public void setNotes(NotebookData notes) {
 		this.notes = notes;
 	}
+	
+	
 	
 	
 }
